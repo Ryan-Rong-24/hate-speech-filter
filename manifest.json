@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Hate Speech Filter",
+  "description": "Filters all forms of hate speech written on any webpage and mutes similar words on YouTube videos.",
+  "version": "0.1.0.0",
+  "icons": {
+    "16": "icon16x16.jpg",
+    "48": "icon48x48.jpg",
+    "128": "icon128x128.jpg"
+  },
+  "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["censorWords.js"]
+      },
+      {
+        "matches": ["https://www.youtube.com/watch?v=*"],
+        "js": ["censorWords.js", "yt-mute.js"]
+      }
+  ]
+}
